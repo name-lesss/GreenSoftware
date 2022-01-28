@@ -1,0 +1,47 @@
+This file shows how the different files and programming languages were compiled and runned for the binarytrees problem.
+
+Java:
+    -mv binarytrees.java-2.java binarytrees.java (because of class name)
+    -javac -d . binarytrees.java
+    -java binarytrees 10
+
+JavaScript:
+    -cp -L binarytrees.node binarytrees.js
+    -node binarytrees.js 10
+
+Python3:
+    -python3 binarytrees.py 10
+
+PHP:
+    -php -n -d memory_limit=4096M binarytrees.php 10
+
+C#:
+    -mcs binarytrees.cs
+    -mono binarytrees.exe 10
+
+C:
+  Compile:
+    -(for 1)gcc -pipe -Wall -O3 -fomit-frame-pointer -march=native binarytrees.gcc.c -o binarytrees.gcc_run -lm
+    -(for 3 (not working))gcc -pipe -Wall -O3 -fomit-frame-pointer -march=native -fopenmp -D_FILE_OFFSET_BITS=64 -I/usr/include/apr-1.0 binarytrees.gcc-3.c -o binarytrees.gcc_run -lapr-1 -lgomp -lm
+    -(for 5)gcc -pipe -Wall -O3 -fomit-frame-pointer -march=native -pthread binarytrees.gcc-5.c -o binarytrees.gcc_run
+  Compile no Optimizations:
+    -(for 1)gcc binarytrees.gcc.c -o binarytrees.gcc_run -lm
+    -(for 3)
+    -(for 5)gcc -pthread binarytrees.gcc-5.c -o binarytrees.gcc_run
+  Run:
+    -./binarytrees.gcc_run 10
+
+C++:
+  Compile:
+    -(for 1,3 (not working))g++ -c -pipe -O3 -fomit-frame-pointer -march=native   binarytrees.gpp.c++ -o binarytrees.c++.o && g++ binarytrees.c++.o -o binarytrees.gpp_run -lpthread
+    -(for 2)g++ -c -pipe -O3 -fomit-frame-pointer -march=native binarytrees.gpp-2.c++ -o binarytrees.c++.o && g++ binarytrees.c++.o -o binarytrees.gpp_run
+    -(for 6,8)g++ -c -pipe -O3 -fomit-frame-pointer -march=native -fopenmp binarytrees.gpp-6.c++ -o binarytrees.c++.o && g++ binarytrees.c++.o -o binarytrees.gpp_run -fopenmp -lboost_system
+    -(for 9 (not working))g++ -c -pipe -O3 -fomit-frame-pointer -march=native -fopenmp -I/usr/include/apr-1.0 binarytrees.gpp-9.c++ -o binarytrees.c++.o && g++ binarytrees.c++.o -o binarytrees.gpp_run -fopenmp -lapr-1
+  Compile no optimizations:
+    -(for 2)g++ -c binarytrees.gpp-2.c++ -o binarytrees.c++.o && g++ binarytrees.c++.o -o binarytrees.gpp_run
+    -(for 1,3,6,8)g++ -c binarytrees.gpp-8.c++ -o binarytrees.c++.o && g++ binarytrees.c++.o -o binarytrees.gpp_run -lboost_system
+  Run:
+    -./binarytrees.gpp_run 10
+
+Ruby:
+    -ruby -W0 binarytrees.yarv 10

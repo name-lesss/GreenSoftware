@@ -1,0 +1,48 @@
+This file shows how the different files and programming languages were compiled and runned for the fannkuchredux problem.
+
+Java:
+    -mv fannkuchredux.java-2.java fannkuchredux.java (because of class name)
+    -javac -d . fannkuchredux.java
+    -java fannkuchredux 12
+
+JavaScript:
+    -cp -L fannkuchredux.node fannkuchredux.js
+    -node fannkuchredux.js 12
+
+Python3:
+    -python3 fannkuchredux.py 12
+
+PHP:
+    -php -n fannkuchredux.php 12
+
+C#:
+    -mcs fannkuchredux.cs
+    -mono fannkuchredux.exe 12
+
+C:
+  Compile:
+    -(for 1,3,4)gcc -pipe -Wall -O3 -fomit-frame-pointer -march=native  fannkuchredux.gcc.c -o fannkuchredux.gcc_run
+    -(for 2)gcc -pipe -Wall -O3 -fomit-frame-pointer -march=native -pthread fannkuchredux.gcc-2.c -o fannkuchredux.gcc_run
+    -(for 5)gcc -pipe -Wall -O3 -fomit-frame-pointer -march=native -fopenmp fannkuchredux.gcc-5.c -o fannkuchredux.gcc_run
+  Compile no optimizations:
+    -(for 1,5)gcc fannkuchredux.gcc.c -o fannkuchredux.gcc_run
+    -(for 2 (with optimization but otherwise wont compile))gcc -O3 -pthread fannkuchredux.gcc-2.c -o fannkuchredux.gcc_run
+    -(for 3 (with optimization but otherwise wont compile))gcc -O3 fannkuchredux.gcc-3.c -o fannkuchredux.gcc_run
+    -(for 4 (with optimization but otherwise wont compile))gcc -O3 -march=native fannkuchredux.gcc-4.c -o fannkuchredux.gcc_run
+  Run:
+    -./fannkuchredux.gcc_run 12
+
+C++:
+  Compile:
+    -(for 1)g++ -c -pipe -O3 -fomit-frame-pointer -march=native  -std=c++11 -pthread fannkuchredux.gpp.c++ -o fannkuchredux.c++.o && g++ fannkuchredux.c++.o -o fannkuchredux.gpp_run -lpthread
+    -(for 4)g++ -c -pipe -O3 -fomit-frame-pointer -march=native -pthread fannkuchredux.gpp-4.c++ -o fannkuchredux.c++.o && g++ fannkuchredux.c++.o -o fannkuchredux.gpp_run -lpthread -lboost_thread -lboost_system
+    -(for 6,7)g++ -c -pipe -O3 -fomit-frame-pointer -march=native fannkuchredux.gpp-7.c++ -o fannkuchredux.c++.o && g++ fannkuchredux.c++.o -o fannkuchredux.gpp_run
+  Compile no optimizations:
+    -(for 1)g++ -c -pthread fannkuchredux.gpp.c++ -o fannkuchredux.c++.o && g++ fannkuchredux.c++.o -o fannkuchredux.gpp_run -lpthread
+    -(for 4)g++ -c fannkuchredux.gpp-4.c++ -o fannkuchredux.c++.o && g++ fannkuchredux.c++.o -o fannkuchredux.gpp_run -lboost_thread
+    -(for 6,7)g++ -c -march=native fannkuchredux.gpp-6.c++ -o fannkuchredux.c++.o && g++ fannkuchredux.c++.o -o fannkuchredux.gpp_run
+  Run:
+    -./fannkuchredux.gpp_run 12
+
+Ruby:
+    -ruby -W0 fannkuchredux.yarv 12

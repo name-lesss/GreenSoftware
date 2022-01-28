@@ -1,0 +1,43 @@
+This file shows how the different files and programming languages were compiled and runned for the fasta problem.
+
+Java:
+    -mv fasta.java-2.java fasta.java (because of class name)
+    -javac -d . fasta.java
+    -java fasta 1000 > result.txt
+
+JavaScript:
+    -cp -L fasta.node fasta.js
+    -node fasta.js 1000 > result.txt
+
+Python3:
+    -python3 fasta.py 1000 > result.txt
+
+PHP:
+    -php -n fasta.php 1000 > result.txt
+
+C#:
+    -mcs fasta.cs
+    -mono fasta.exe 1000 > result.txt
+
+C:
+  Compile:
+    -(for 1,4,5)gcc -pipe -Wall -O3 -fomit-frame-pointer -march=native fasta.c -o fasta.gcc_run
+    -(for 2,6,7)gcc -pipe -Wall -O3 -fomit-frame-pointer -march=native -fopenmp fasta.gcc-2.c -o fasta.gcc_run
+  Compile no optimizations:
+    -(for 1,2,4,5,7)gcc fasta.gcc-4.c -o fasta.gcc_run
+    -(for 6)gcc -O3 fasta.gcc-6.c -o fasta.gcc_run
+  Run:
+    -./fasta.gcc_run 1000 > result.txt
+
+C++:
+  Compile:
+    -(for 1,2,3,4)g++ -c -pipe -O3 -fomit-frame-pointer -march=native -mfpmath=sse -msse3 fasta.c++ -o fasta.c++.o && g++ fasta.c++.o -o fasta.gpp_run
+    -(for 5,6)g++ -c -pipe -O3 -fomit-frame-pointer -march=native -mfpmath=sse -msse3 -std=c++11 fasta.gpp-5.c++ -o fasta.c++.o && g++ fasta.c++.o -o fasta.gpp_run -lpthread
+  Compile no optimizations:
+    -(for 1,2,3,4)g++ -c fasta.gpp.c++ -o fasta.c++.o && g++ fasta.c++.o -o fasta.gpp_run
+    -(for 5,6)g++ -c fasta.gpp-5.c++ -o fasta.c++.o && g++ fasta.c++.o -o fasta.gpp_run -lpthread
+  Run:
+    -./fasta.gpp_run 1000 > result.txt
+
+Ruby:
+    -ruby -W0 fasta.yarv 1000 > result.txt
