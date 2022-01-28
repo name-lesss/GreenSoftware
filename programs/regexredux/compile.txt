@@ -1,0 +1,40 @@
+This file shows how the different files and programming languages were compiled and runned for the regexredux problem.
+
+Java:
+    -mv regexredux.java-2.java regexredux.java (because of class name)
+    -javac -d . regexredux.java
+    -java regexredux 0 < input.txt
+
+JavaScript:
+    -cp -L regexredux.node.node regexredux.js
+    -node regexredux.js 0 < input.txt
+
+Python3:
+    -python3 regexredux.python3.py 0 < input.txt
+
+PHP:
+    -php -n regexredux.php 0 < input.txt
+
+C#:
+    -mcs regexredux.csharp.cs
+    -mono regexredux.csharp.exe 0 < input.txt
+
+C:
+  Compile:
+    -(for 2)gcc -pipe -Wall -O3 -fomit-frame-pointer -march=native  regexredux.gcc-2.c -o regexredux.gcc_run -lpcre
+    -(for 3,4)gcc -pipe -Wall -O3 -fomit-frame-pointer -march=native -fopenmp regexredux.gcc-3.c -o regexredux.gcc_run -lpcre
+  Compile no optimization:
+    -(for 2,3,4)gcc regexredux.gcc-2.c -o regexredux.gcc_run -lpcre
+  Run:
+    -./regexredux.gcc_run 0 < input.txt
+
+C++:
+  Compile:
+    -(for 1,5)g++ -c -pipe -O3 -fomit-frame-pointer -march=native  -std=c++14 -I/usr/include/re2 regexredux.gpp.c++ -o regexredux.c++.o && g++ regexredux.c++.o -o regexredux.gpp_run /usr/lib/x86_64-linux-gnu/libre2.a -lpthread
+    -(for 2)g++ -c -pipe -O3 -fomit-frame-pointer -march=native -fopenmp -I/usr/include/re2 regexredux.gpp-2.c++ -o regexredux.c++.o && g++ regexredux.c++.o -o regexredux.gpp_run /usr/lib/x86_64-linux-gnu/libre2.a -fopenmp
+    -(for 4)g++ -c -pipe -O3 -fomit-frame-pointer -march=native  -std=c++17 -fopenmp -flto regexredux.gpp-4.c++ -o regexredux.c++.o && g++ regexredux.c++.o -o regexredux.gpp_run -fopenmp -lpcre
+  Run:
+    -./regexredux.gpp_run 0 < input.txt
+
+Ruby:
+    -ruby -W0 regexredux.yarv-2.yarv 0 < input.txt
