@@ -1,0 +1,11 @@
+,Java,JavaScript,Python,PHP,C#,Ruby,C-flags,C-noflags,C++-flags,C++-noflags
+Java,0, 0, 0, 0, 1, 0, 0, 0, 0, 0
+JavaScript,0, 0, 0, 0, 1, 0, 0, 0, 0, 0
+Python,0, 0, 0, 0, 0, 1, 0, 0, 0, 0
+PHP,0, 0, 0, 0, 0, 1, 0, 0, 0, 0
+C#,1, 1, 0, 0, 0, 0, 0, 3, 1, 1
+Ruby,0, 0, 1, 1, 0, 0, 0, 0, 0, 0
+C-flags,0, 0, 0, 0, 0, 0, 0, 0, 2, 0
+C-noflags,0, 0, 0, 0, 3, 0, 0, 0, 1, 0
+C++-flags,0, 0, 0, 0, 1, 0, 2, 1, 0, 0
+C++-noflags,0, 0, 0, 0, 1, 0, 0, 0, 0, 0
