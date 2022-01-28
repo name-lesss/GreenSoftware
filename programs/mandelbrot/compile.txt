@@ -1,0 +1,45 @@
+This file shows how the different files and programming languages were compiled and runned for the mandelbrot problem.
+
+Java:
+    -mv mandelbrot.java-2.java mandelbrot.java (because of class name)
+    -javac -d . mandelbrot.java
+    -java mandelbrot 200 (> test.txt)
+
+JavaScript:
+    -cp -L mandelbrot.node mandelbrot.js
+    -node mandelbrot.js 200 (> test.txt)
+
+Python3:
+    -python3 mandelbrot.python3.py 200 (> test.txt)
+
+PHP:
+    -php -n mandelbrot.php.php 200 (> test.txt)
+
+C#:
+    -mcs mandelbrot.csharp.cs
+    -mono mandelbrot.csharp.exe 200 (> test.txt)
+
+C:
+  Compile:
+    -(for 1,3)gcc -pipe -Wall -O3 -fomit-frame-pointer -march=native -pthread -lm mandelbrot.gcc.c -o mandelbrot.gcc_run
+    -(for 2)gcc -pipe -Wall -O3 -fomit-frame-pointer -march=native mandelbrot.gcc-2.c -o mandelbrot.gcc_run
+    -(for 6)gcc -pipe -Wall -O3 -fomit-frame-pointer -march=native -mno-fma -fno-finite-math-only -fopenmp mandelbrot.gcc-6.c -o mandelbrot.gcc_run
+  Compile no optimizations:
+    -(for 1,3)gcc -pthread -lm mandelbrot.gcc.c -o mandelbrot.gcc_run
+    -(for 2)gcc mandelbrot.gcc-2.c -o mandelbrot.gcc_run
+    -(for 6)gcc -O3 mandelbrot.gcc-6.c -o mandelbrot.gcc_run
+  Run:
+    -./mandelbrot.gcc_run 200 (> test.txt)
+
+C++:
+  Compile:
+    -(for 8,9)g++ -c -pipe -O3 -fomit-frame-pointer -march=native -mfpmath=sse -msse3 -fopenmp mandelbrot.gpp.c++ -o mandelbrot.c++.o && g++ mandelbrot.c++.o -o mandelbrot.gpp_run -fopenmp
+    -(for 2,3,5)g++ -c -pipe -O3 -fomit-frame-pointer -march=native -mfpmath=sse -msse3  mandelbrot.gpp-2.c++ -o mandelbrot.c++.o && g++ mandelbrot.c++.o -o mandelbrot.gpp_run
+    -(for 6)g++ -c -pipe -O3 -fomit-frame-pointer -march=native -mfpmath=sse -msse3 -fopenmp -mno-fma --std=c++14 mandelbrot.gpp-6.c++ -o mandelbrot.c++.o && g++ mandelbrot.c++.o -o mandelbrot.gpp_run -fopenmp
+  Compile no optimizations:
+    -(for 2,3,5,6,8,9)g++ -c mandelbrot.gpp-8.c++ -o mandelbrot.c++.o && g++ mandelbrot.c++.o -o mandelbrot.gpp_run
+  Run:
+    -./mandelbrot.gpp_run 200 (> test.txt)
+
+Ruby:
+    -ruby -W0 mandelbrot.yarv.yarv 200 (> test.txt)
